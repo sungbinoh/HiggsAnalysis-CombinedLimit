@@ -334,7 +334,7 @@ void get_denom(TString channel){
 	mapfunc["denom" + this_line] = new TH1F("", "", 1, 0., 1.);
 	
 	double current_denom = mapfunc["sumW" + Cycle_name + this_line] -> GetBinContent(2);
-	mapfunc["denom" + this_line] -> Fill(0.5, current_denom * 0.04);
+	mapfunc["denom" + this_line] -> Fill(0.5, current_denom * 0.005);
 	
       }
     }

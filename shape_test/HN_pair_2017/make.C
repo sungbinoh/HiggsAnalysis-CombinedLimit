@@ -1,7 +1,7 @@
 void make(int xxx=0){
 
-  double Ltot = 35900.;
-  int n_rebin = 50;
+  double Ltot = 41300.;
+  int n_rebin = 1;
 
   TString channel = "MuMu";
   if(xxx==1) channel = "ElEl";

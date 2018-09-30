@@ -1,4 +1,4 @@
-HiggsAnalysis-CombinedLimit
+HiggsAnalysis-CombinedLimit (Branch for Z' to NN analysis)
 ===========================
 
 ### Official documentation
@@ -30,6 +30,11 @@ make -j 8; make # second make fixes compilation error of first
     git checkout v6.3.1
     scramv1 b clean; scramv1 b # always make a clean build, as scram doesn't always see updates to src/LinkDef.h
 
+    #Add this (HN pair) remote
+    git remote add suoh git@github.com:sungbinoh/HiggsAnalysis-CombinedLimit.git
+    
+    #pull this branch
+    git pull suoh HN_pair #will pull shape_test dir
 
 ### Main folder for HN pair analysis is ./shape_test
 * Need to make a root file contains bkg & signal shapes
