@@ -73,26 +73,12 @@ void plot(){
 	
 	Xsec_output << mZp << "\t" << mN << "\t" << Xsec << endl;
 	
-	/*
-	
-        mZp_str.Remove(0,2);
-        mZp_str.Prepend("Zp");
-        mN_str.Prepend("H");
-
-        myfile << mZp_str << "_" << mN_str << endl;
-
-        mapfunc["mZp_SR_DiMu" + this_line + "rebin"] -> SetName("h_OS_lljjjjmass_SR1_DiMu_" + mZp_str + "_" + mN_str);
-        mapfunc["mZp_SR_DiMu" + this_line + "rebin"] -> Write();
-        mapfunc["denom" + this_line] -> SetName("Den_" + mZp_str + "_" + mN_str + "_h_OS_lljjjjmass_SR1_DiMu");
-
-        mapfunc["denom" + this_line] -> Write();
-	*/
       }
     }
   }
   
   
-  
+  Xsec_input.close();
   Xsec_output.close(); 
   
 }
