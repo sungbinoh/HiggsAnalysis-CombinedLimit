@@ -9,7 +9,7 @@ import time
 binning = sys.argv[1] # -- Inclusive, 3AK8, 4AK8
 
 now = datetime.datetime.now()
-temp_dir = "signal_injection_" + binning
+temp_dir = "Goodness_of_fit_" + binning
 
 make_tmp_dir = "mkdir " + temp_dir
 os.system(make_tmp_dir)
@@ -35,10 +35,15 @@ for line in f: # -- loop over mass points
     file_run = open("run.sh", 'a')
     current_dir = os.getcwd()
     file_run.write("\n" + "cd " + current_dir + "\n")
-    file_run.write("combine -M AsymptoticLimits --expectSignal 50 shape_" + binning + "_" + mass_point + ".txt &> log.txt")
-    
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=KS &> log_KS.txt\n")
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=KS -t 500 -s 1 &> log_KS_toys.txt\n")
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=AD &> log_AD.txt\n")
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=AD -t 500 -s 1 &> log_AD_toys.txt\n")
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=saturated &> log_saturated.txt\n")
+    file_run.write("combine -M GoodnessOfFit shape_" + binning + "_" + mass_point + ".txt --algo=saturated --toysFreq -t 500 &> log_saturated_toys.txt")
+
     # -- Submit Job
-    submit_job = "condor_submit -batch-name Combine_" + binning + "_signal_injection submit.jds"
+    submit_job = "condor_submit -batch-name Combine_" + binning + "_Goodness_of_fit submit.jds"
     os.system(submit_job)
     os.chdir("../../")
     #abort for test
