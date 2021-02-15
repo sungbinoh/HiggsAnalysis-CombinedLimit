@@ -80,7 +80,7 @@ for line in f: # -- loop over mass points
           words = l.split()
           limit_1sig_up = words[3]
     
-    #out_line = mZp + "\t" + mN + "\t" + limit_2sig_down + "\t" + limit_1sig_down + "\t" + limit_central + "\t" + limit_1sig_up + "\t" + limit_2sig_up
-    out_line =  mZp + "\t" + mN + "\t" + limit_central
+    out_line = mZp + "\t" + mN + "\t" + limit_2sig_down + "\t" + limit_1sig_down + "\t" + limit_central + "\t" + limit_1sig_up + "\t" + limit_2sig_up
+    #out_line =  channel + "\t" + mZp + "\t" + mN + "\t" + limit_central
     print out_line
 f.close()
